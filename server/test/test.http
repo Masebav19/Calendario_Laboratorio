@@ -1,0 +1,85 @@
+
+GET http://localhost:4000/calendar/getDaysbyMonth/10/2025
+
+###
+GET http://localhost:4000/calendar/getDaysbyWeek/10/2025/8
+
+###
+
+POST http://localhost:4000/calendar/NewSession
+Content-Type: application/json
+
+{
+    "Asunto": "Laboratorio de Sensores y transductores",
+    "Hora_inicial": "09:00",
+    "Hora_final": "11:00",
+    "Periodicidad": "Semanalmente",
+    "Responsable": "Johnny Chuqui",
+    "Correo_responsable": "johnny.chuqui@epn.edu.ec",
+    "fecha_inicio": "2025-10-03"
+}
+
+###
+POST http://localhost:4000/calendar/DeleteSession
+Content-Type: application/json
+
+{
+    "Asunto": "Laboratorio de Instrumentación Industrial Mecatrónica",
+    "Hora_inicial": "14:00",
+    "Correo": "maria.trujillo01@epn.edu.ec"
+}
+
+###
+POST http://localhost:4000/calendar/SignUp
+Content-Type: application/json
+
+{
+    "Nombre": "Mateo",
+    "Apellido": "Vásquez",
+    "Correo": "mateo.vasquez@epn.edu.ec",
+    "Tipo": "Técnico docente",
+    "Password": "labRedes"
+}
+
+###
+POST http://localhost:4000/calendar/LogIn
+Content-Type: application/json
+
+{
+    "Correo": "mateo.vasquez@epn.edu.ec",
+    "Password": "password123"
+}
+
+###
+DELETE http://localhost:4000/calendar/DeleteUser
+Content-Type: application/json
+
+{
+    "Correo": "margarita.jaramillo@epn.edu.ec",
+    "Password": "labRedes"
+}
+
+###
+POST http://localhost:4000/calendar/OpenTicket
+Content-Type: application/json
+
+{
+    "Asunto": "Falla en el proyector",
+    "Descripcion": "El proyector no enciende",
+    "Prioridad": "Alta",
+    "Solicitante": "Mateo Vásquez",
+    "Correo_solicitante": "mateo.vasquez@epn.edu.ec"
+}
+
+###
+POST http://localhost:4000/calendar/CloseTicket
+Content-Type: multipart/form-data;
+
+###
+GET http://localhost:4000/calendar/GetNewTickets
+
+###
+GET http://localhost:4000/calendar/GetClosedTickets
+
+###
+GET http://localhost:4000/calendar/GetTicketImage/00SvvP7kanzeayoWKdkNu

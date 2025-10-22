@@ -1,0 +1,81 @@
+.Calendar{
+    width: 80vw;
+    height: 75vh;
+    overflow-y: auto;
+    padding: 3px;
+    display: grid;
+    grid-column: 1/2;
+}
+.Calendar.week{
+    grid-template-columns: 2vw auto;
+}
+.CalendarBody{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: 35.6px auto;
+}
+
+.CalendarDay{
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+    background: #ececf2;
+    border: solid 1px #8687aa;
+    text-align: center;
+    max-height: 35.6px;
+
+}
+
+.CalendarWeekdivisions{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 35.6px repeat(68,30px);
+    border: solid 1px #8687aa;
+}
+
+.CalendarWeekdivisions:first-child{
+    height: 35.6px;
+    grid-row: 1/2;
+    padding: 0;
+}
+
+.CalendarWeekdivisions span{
+    box-sizing: border-box;
+    border: solid 1px #8687aa;
+    font-size: 11px;
+    text-align: center;
+    height: 100%;
+    padding: 0px 2px 0px 2px;
+}
+
+.CalendarNavigation{
+    grid-column: 1/2;
+    display: flex;
+    gap: 20px;
+    padding: 0px 10px 0px 10px;
+    height: 6vh;
+    align-items: center;
+}
+.CalendarNavigation span:first-child{
+    border: solid 1px #353446;
+    padding: 2px 8px 2px 8px;
+    border-radius: 7px;
+    transition: background 0.3s ease-in-out;
+}
+
+.CalendarNavigation span:first-child:hover{
+    cursor: pointer;
+    background: #8687aa;
+    transition: background 0.3s ease-in-out;
+}
+
+.CalendarNavigation nav{
+    height: 100%;
+}
+.CalendarNavigation img{
+    height: 100%;
+}
+
+.CalendarNavigation img:hover{
+    cursor: pointer;
+}

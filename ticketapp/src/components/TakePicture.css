@@ -1,0 +1,14 @@
+.PhotoConatiner{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+}
+.PhotoConatiner video{
+    width: 100vw;
+    height: auto;
+}
+.PhotoConatiner button{
+    width: 30vw;
+}

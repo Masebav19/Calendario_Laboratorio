@@ -1,0 +1,65 @@
+
+.dayInfoContainer.month{
+    box-sizing: border-box;
+    width: 100%;
+    border: solid 1px #8687aa;
+    height: 13.99vh;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.DayHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.DayHeader img:hover{
+    cursor: pointer;
+}
+
+.sessionInfo{
+    background: #535277;
+    color: white;
+    border-radius: 5px;
+    padding: 3px;
+    max-height: 25px;
+}
+
+.sessionInfo small{
+    overflow: hidden;
+}
+
+.sessionInfo:hover{
+    cursor: pointer;
+}
+
+.dayInfoContainer.week{
+    box-sizing: border-box;
+    width: 100%;
+    border-right: solid 1px #8687aa;
+    border-bottom: solid 1px #8687aa;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(68,30px);
+}
+.dayInfoContainer.week div{
+    height: 100%;
+    padding: 0px 5px 0px 5px;
+    transition: background 0.1s ease-in-out; 
+}
+
+.dayInfoContainer.week div:hover{
+    background: #535277;  
+    transition: background 0.2s ease-in-out; 
+}
+
+.dayInfoContainer.week .session{
+    background: #535277;
+    color: white;
+}
+
+.dayInfoContainer.week .session:hover{
+    cursor: pointer;
+}

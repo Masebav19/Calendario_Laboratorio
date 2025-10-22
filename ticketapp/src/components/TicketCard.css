@@ -1,0 +1,18 @@
+.ticketCardConatiner{
+    display: flex;
+    flex-direction: column;
+    border: solid 2px #283443;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 12px;
+    width: 90vw;
+}
+.ticketCardConatiner span:nth-child(2){
+    display: flex;
+    flex-direction: column;
+}
+.ticketCardConatiner img{
+    width: 85vw;
+    height: auto;
+}
+

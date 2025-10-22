@@ -1,0 +1,134 @@
+header{
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+}
+header>small{
+  color: #262532;
+  font-weight: bold;
+  font-size: 18px;
+}
+#option-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  height: 2vh;
+  padding: 10px;
+}
+#option-container span{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  padding: 5px;
+  transition: background 0.2s ease-in-out;
+}
+
+#option-container span small{
+  font-size: 15px;
+}
+
+#option-container span:hover{
+  background: #d6d5e2;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+#option-container .selected{
+  border-bottom: 3px solid black ;
+}
+
+footer{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  color: #262532;
+  padding: 0px 10px 0px 10px;
+}
+
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 6vh 1fr;
+}
+.SessionConatiner,.LogConatiner{
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  height: 55vh;
+  width: 30vw;
+  background: #262532ee;
+  border: solid 2px #f6f6f9;
+  box-shadow: 1px 1px 1px 1px #353446;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  animation: ShowUp both 0.5s ease-in-out;
+}
+.LogConatiner{
+  z-index: 9999;
+}
+.LogConatiner span:first-child img{
+  height: 30vh;
+}
+.LogConatiner .LogPanel{
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.inputContainer{
+  display: flex;
+  flex-direction: column;
+}
+.buttonPanel{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.LogConatiner button{
+  background: #d6d5e2;
+  padding: 6px;
+  border-radius: 7px;
+  border: solid 2px #262532;
+}
+
+.LogConatiner button:hover{
+  background: #8687aa;
+}
+
+.SessionConatiner .SessionPanel{
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.SessionPanel .inputContainer{
+   grid-column: 1/3;
+}
+
+.SessionPanel .inputContainer:nth-child(5){
+  grid-column: 1/2;
+}
+
+.SessionPanel .inputContainer:nth-child(6){
+  grid-column: 2/3;
+}
+
+@keyframes ShowUp {
+  0%{
+    width: 0;
+    opacity: 0;
+  }
+  100%{
+    width: 30vw;
+    opacity: 1;
+  }
+  
+}

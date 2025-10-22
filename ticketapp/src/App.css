@@ -1,0 +1,43 @@
+header h2{
+  color: #283443;
+}
+header{
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+}
+header nav{
+  display: flex;
+  justify-content: space-around;
+}
+header nav span{
+  padding: 7px;
+  width: 100%;
+  text-align: center;
+  transition: background 0.3s ease-in-out;
+}
+
+header nav span:hover{
+  background: #8cb8ce;
+  transition: background 0.3s ease-in-out;
+  cursor: pointer;
+}
+.navOption.Activate{
+  border-bottom: solid 2px #283443;
+}
+main{
+  height: 70vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+footer{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  color: #262532;
+  padding: 0px 10px 0px 10px;
+}
