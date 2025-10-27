@@ -31,8 +31,8 @@ export default class MySQLClient{
         const con = await this.Client.createConnection("mysql://root:@localhost:3306")
         await con.connect()
         await con.query("USE intrucalendar")
-        const result = await con.query(`INSERT INTO sesiones (Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable, Year, Month, Date, fecha_inicio) VALUES ${sessions.map(session =>{
-            return `('${session.Asunto}','${session.Hora_inicial}','${session.Hora_final}','${session.Periodicidad}','${session.Responsable}','${session.Correo_responsable}',${session.Year},${session.Month},${session.Date},'${session.fecha_inicio}')`
+        const result = await con.query(`INSERT INTO sesiones (Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable, Year, Month, Date, fecha_inicio, Mesas) VALUES ${sessions.map(session =>{
+            return `('${session.Asunto}','${session.Hora_inicial}','${session.Hora_final}','${session.Periodicidad}','${session.Responsable}','${session.Correo_responsable}',${session.Year},${session.Month},${session.Date},'${session.fecha_inicio}','${session.Mesas}')`
         }).join(",")}`)
         con.end()
         return result[0] ? true : false

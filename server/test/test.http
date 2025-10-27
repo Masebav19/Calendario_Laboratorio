@@ -16,7 +16,8 @@ Content-Type: application/json
     "Periodicidad": "Semanalmente",
     "Responsable": "Johnny Chuqui",
     "Correo_responsable": "johnny.chuqui@epn.edu.ec",
-    "fecha_inicio": "2025-10-03"
+    "fecha_inicio": "2025-10-03",
+    "Mesas": "Mesa1,Mesa2"
 }
 
 ###

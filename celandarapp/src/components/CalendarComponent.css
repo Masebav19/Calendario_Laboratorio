@@ -7,7 +7,7 @@
     grid-column: 1/2;
 }
 .Calendar.week{
-    grid-template-columns: 2vw auto;
+    grid-template-columns: 5vw auto;
 }
 .CalendarBody{
     display: grid;
@@ -29,11 +29,11 @@
 .CalendarWeekdivisions{
     box-sizing: border-box;
     display: grid;
-    grid-template-rows: 35.6px repeat(68,30px);
+    grid-template-rows: 35.6px repeat(6,100px);
     border: solid 1px #8687aa;
 }
 
-.CalendarWeekdivisions:first-child{
+.CalendarWeekdivisions span:first-child{
     height: 35.6px;
     grid-row: 1/2;
     padding: 0;

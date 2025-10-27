@@ -75,7 +75,7 @@ export async function getDaysbyWeek({month, year, date}){
     return daysofweek
 }
 
-export async function NewSession({Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable, fecha_inicio}){
+export async function NewSession({Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable, fecha_inicio, Mesas}){
     const SessionDateInfo = new Date(fecha_inicio+'T01:00:00')
     const SessionYear = SessionDateInfo.getFullYear()
     const SessionMonth = SessionDateInfo.getMonth()
@@ -87,7 +87,7 @@ export async function NewSession({Asunto, Hora_inicial, Hora_final, Periodicidad
             const ThisSession = new Date(SessionYear,SessionMonth,SessionDate+(i*7))
             sessions.push({
                 Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable,
-                fecha_inicio,
+                fecha_inicio, Mesas,
                 Year: ThisSession.getFullYear(),
                 Month: ThisSession.getMonth(),
                 Date: ThisSession.getDate()
@@ -101,7 +101,7 @@ export async function NewSession({Asunto, Hora_inicial, Hora_final, Periodicidad
             const ThisSession = new Date(SessionYear,SessionMonth+i,SessionDate)
             sessions.push({
                 Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable,
-                fecha_inicio,
+                fecha_inicio, Mesas,
                 Year: ThisSession.getFullYear(),
                 Month: ThisSession.getMonth(),
                 Date: ThisSession.getDate(),
@@ -118,7 +118,7 @@ export async function NewSession({Asunto, Hora_inicial, Hora_final, Periodicidad
                 Year: ThisSession.getFullYear(),
                 Month: ThisSession.getMonth(),
                 Date: ThisSession.getDate(),
-                fecha_inicio
+                fecha_inicio, Mesas
             })
         }
         const result = await Client.CreateMultpleSessions({sessions})
@@ -127,7 +127,7 @@ export async function NewSession({Asunto, Hora_inicial, Hora_final, Periodicidad
         const sessions = []
         sessions.push({
             Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable,
-            fecha_inicio,
+            fecha_inicio, Mesas,
             Year: SessionYear,
             Month: SessionMonth,
             Date: SessionDate            

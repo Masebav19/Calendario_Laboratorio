@@ -18,8 +18,8 @@ export default class Calendar{
     static async NewSession(req,res){
         const validationResult = validateSessionData(req.body)
         if(validationResult.error) return res.json({error: JSON.parse(validationResult.error.message)}).status(400)
-        const { Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable, fecha_inicio } = validationResult.data
-        const result = await NewSession({Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable, fecha_inicio})
+        const { Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable, fecha_inicio, Mesas } = validationResult.data
+        const result = await NewSession({Asunto, Hora_inicial, Hora_final, Periodicidad, Responsable, Correo_responsable, fecha_inicio, Mesas})
         res.json({success: result})
     }
     static async DeleteSession(req,res){
