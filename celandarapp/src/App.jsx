@@ -16,13 +16,14 @@ function App() {
   const Name = useRef(undefined)
   const Type = useRef(undefined)
 
-  const Asunto = useRef()
-  const Responsable = useRef()
-  const CorreoResp = useRef()
-  const Hora_inicial = useRef()
-  const Hora_final = useRef()
-  const fecha_inicio = useRef()
-  const Periodicidad = useRef()
+  const Asunto = useRef(undefined)
+  const Responsable = useRef(undefined)
+  const CorreoResp = useRef(undefined)
+  const Hora_inicial = useRef(undefined)
+  const Hora_final = useRef(undefined)
+  const fecha_inicio = useRef(undefined)
+  const Periodicidad = useRef(undefined)
+  const Mesas = useRef(undefined)
 
   function handleChangeMonth(){
       setCalendarType('month')
@@ -50,7 +51,7 @@ function App() {
       })
       if(result?.result) {
         alert(`Session inciada ${result.result}\nPuede crear session dando click en Nuevo evento o dando click en + en cada día`)
-        SetUser({"User": result.result})
+        SetUser({"User": result.result,"UserDetail": result.User})
         SetLog({state: false, Status: undefined, session:false})
       }
       else {
@@ -123,7 +124,8 @@ function App() {
         Periodicidad: Periodicidad.current.value,
         Responsable: Responsable.current.value,
         Correo_responsable: CorreoResp.current.value,
-        fecha_inicio: fecha_inicio.current.value
+        fecha_inicio: fecha_inicio.current.value,
+        Mesas: Mesas.current.value
       }
       const result = await RequestsManager({URL,METHOD,BODY})
       if(result?.success) {
@@ -239,19 +241,19 @@ function App() {
           <div className="SessionPanel">
             <div className="inputContainer">
               <label htmlFor="Asunto">Asunto</label>
-              <input type="text" id = "Asunto" ref={Asunto} required/>
+              <input type="text" id = "Asunto" ref={Asunto} required defaultValue={"Reserva"}/>
             </div>
             <div className="inputContainer">
               <label htmlFor="Responsable">Responsable</label>
-              <input type="text" id = "Responsable" ref={Responsable} required/>
+              <input type="text" id = "Responsable" ref={Responsable} required defaultValue={`${Log.session.User.Nombre} ${Log.session.User.Apellido}`}/>
             </div>
             <div className="inputContainer">
               <label htmlFor="CorreoRes">Correo del responsable</label>
-              <input type="email" id = "CorreoRes" ref={CorreoResp} required/>
+              <input type="email" id = "CorreoRes" ref={CorreoResp} required defaultValue={Log.session.User.correo}/>
             </div>
             <div className="inputContainer">
               <label htmlFor="Periodicidad">Periodicidad</label>
-                <input list='ListPeriodicidad' id = "Periodicidad" ref={Periodicidad} required/>
+                <input list='ListPeriodicidad' id = "Periodicidad" ref={Periodicidad} required defaultValue={"Ninguno"}/>
                 <datalist id='ListPeriodicidad'>
                   <option value="Semanalmente">Semanalmente</option>
                   <option value="Mensualmente">Mensualmente</option>
@@ -260,17 +262,34 @@ function App() {
                 </datalist>
             </div>
            <div className="inputContainer">
-              <label htmlFor="Hora_inicial">Hora Inicial   -</label>
-              <input type="time" id = "Hora_inicial" ref={Hora_inicial} required step={"900"} min={"07:00"} max={"21:45"}/>
+              <label htmlFor="Hora_inicial">Hora Inicial</label>
+              <input type="time" id = "Hora_inicial" ref={Hora_inicial} 
+              required step={"900"} min={"07:00"} max={"21:45"}
+              defaultValue={Log.session?.TimeSession[0]}/>
               
             </div>
            <div className="inputContainer">
               <label htmlFor="Hora_final">Hora Final</label>
-              <input type="time" id = "Hora_final" ref={Hora_final} required step={"900"} min={"07:00"} max={"21:45"}/>
+              <input type="time" id = "Hora_final" ref={Hora_final} 
+              required step={"900"} min={"07:00"} max={"21:45"}
+              defaultValue={Log.session?.TimeSession[1]}/>
           </div>
            <div className="inputContainer">
               <label htmlFor="Fecha">Fecha</label>
               <input type="date" id = "Fecha" ref={fecha_inicio} required defaultValue={Log.session?.NewSessionInfo ? Log.session?.NewSessionInfo:""}/>
+          </div>
+           <div className="inputContainer">
+              <label htmlFor="MesasInput">Numero de mesas</label>
+              <input list='MesasList' id = "MesasInput" ref={Mesas} required
+              defaultValue={"Mesa"}/>
+              <datalist id='MesasList'>
+                <option value="Mesa1">Mesa1</option>
+                <option value="Mesa2">Mesa2</option>
+                <option value="Mesa3">Mesa3</option>
+                <option value="Mesa1,Mesa2">Mesa1,Mesa2</option>
+                <option value="Mesa2,Mesa3">Mesa2,Mesa3</option>
+                <option value="Mesa1,Mesa2,Mesa3">Mesa1,Mesa2,Mesa3</option>
+              </datalist>
           </div>
 
             <div className="buttonPanel">
@@ -295,6 +314,7 @@ function App() {
         SetLog = {SetLog}
         SetUser = {SetUser}
         User = {User}
+        Log = {Log}
       />
       <InfoSessionPanel
       SessionSelected={SessionSelected}

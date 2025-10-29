@@ -5,7 +5,7 @@ import { DAYSNAMES, MONTHNAMES } from "../utils/constants.js"
 import { CLASSHOURS } from "../utils/constants.js"
 import './CalendarComponent.css'
 
-export default function CalendarConatiner ({CalendarType, SetSessionSelected, SetLog, User, SetUser}){
+export default function CalendarConatiner ({CalendarType, SetSessionSelected, SetLog, User, SetUser,Log}){
     const [CalendarDaysInfo, SetCalendarDaysInfo] = useState(undefined)
     useEffect(()=>{
         const now = new Date()
@@ -16,7 +16,7 @@ export default function CalendarConatiner ({CalendarType, SetSessionSelected, Se
         RequestsManager({URL}).then(result=>{
             SetCalendarDaysInfo(result)
         })
-    },[CalendarType])
+    },[CalendarType,Log])
 
     async function changeDateCalendar(Type){
         if(Type === 'Hoy'){

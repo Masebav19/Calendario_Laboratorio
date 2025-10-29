@@ -14,7 +14,11 @@
     display: flex;
     justify-content: space-between;
 }
-
+.DayHeader img{
+    grid-column: -2/-1;
+    align-self: center;
+    justify-self: center;
+}
 .DayHeader img:hover{
     cursor: pointer;
 }
@@ -57,7 +61,7 @@
     transition: background 0.1s ease-in-out; 
 }
 
-.dayInfoContainer.week div:hover{
+.dayInfoContainer.week .DayHeader:hover{
     background: #535277;  
     transition: background 0.2s ease-in-out; 
 }
@@ -75,17 +79,37 @@
 
 
 .dayInfoContainer.week .sessionInfo.Mesa{
-    font-size: 10px;
+    font-size: 12px;
 }
-.dayInfoContainer.week .sessionInfo.Mesa:hover{
+/* .dayInfoContainer.week .sessionInfo.Mesa:hover{
     background: #476486;
-}
+} */
 
 .dayInfoContainer.week .sessionInfo.Mesa.empty{
     background: none;
     color: black;
 }
 .dayInfoContainer.week .sessionInfo.Mesa.empty:hover{
-    background: #476486;
+    background: #535277;
     color: white;
+}
+
+/* Opción A: mostrar el texto sólo al hacer hover (mantener en DOM para accesibilidad) */
+.sessionInfo.Mesa.empty{
+    position: relative;
+    overflow: visible;
+}
+.sessionInfo.Mesa.empty .label{
+    font-size: 10px;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 120ms ease, transform 120ms ease;
+    pointer-events: none; /* no interfiera mientras está oculto */
+}
+.sessionInfo.Mesa.empty:hover .label,
+.sessionInfo.Mesa.empty:focus-within .label{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }

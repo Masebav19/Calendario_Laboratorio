@@ -99,7 +99,7 @@ export default class MySQLClient{
 
         await con.query("INSERT INTO lab_logs_sessions (UUID, correo, Nombre, Apellido, Resultado) VALUES (?,?,?,?,?)",
             [UserExist[0][0].UUID, Correo, UserExist[0][0].Nombre, UserExist[0][0].Apellido, "LogIn: Exitoso"])
-        return {result: Correo, Id: UserExist[0][0].UUID}
+        return {result: Correo, Id: UserExist[0][0].UUID, User: UserExist[0][0]}
     }
     async DeleteUser({Correo, Password}){
         const con = await this.Client.createConnection("mysql://root:@localhost:3306")
