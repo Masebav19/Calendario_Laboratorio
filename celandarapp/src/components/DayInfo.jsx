@@ -61,7 +61,7 @@ return(
                                         onClick={(e)=>{
                                             e.preventDefault()
                                             if(!Boolean(Session.some(sess => sess.Mesas.includes("Mesa1")))) {
-                                                TimeSession.current = CLASSHOURS[i].split('-')
+                                                TimeSession.current = {inicio:CLASSHOURS[i].split('-')[0],fin:CLASSHOURS[i].split('-')[1]}
                                                 return handleNewSession(e)
                                             }
                                             alert("Ya se encuentra reservada la mesa")
@@ -72,7 +72,7 @@ return(
                                         onClick={(e)=>{
                                             e.preventDefault()
                                             if(!Boolean(Session.some(sess => sess.Mesas.includes("Mesa2")))) {
-                                                TimeSession.current = CLASSHOURS[i].split('-')
+                                                TimeSession.current = {inicio:CLASSHOURS[i].split('-')[0],fin:CLASSHOURS[i].split('-')[1]}
                                                 return handleNewSession(e)
                                             }
                                             alert("Ya se encuentra reservada la mesa")
@@ -83,7 +83,7 @@ return(
                                         onClick={(e)=>{
                                             e.preventDefault()
                                             if(!Boolean(Session.some(sess => sess.Mesas.includes("Mesa3")))) {
-                                                TimeSession.current = CLASSHOURS[i].split('-')
+                                                TimeSession.current = {inicio:CLASSHOURS[i].split('-')[0],fin:CLASSHOURS[i].split('-')[1]}
                                                 return handleNewSession(e)
                                             }
                                             alert("Ya se encuentra reservada la mesa")
@@ -122,7 +122,7 @@ return(
                                     style={{gridRow:"1/-1"}}
                                     onClick={(e)=>{
                                         Mesa.current = 1
-                                        TimeSession.current = CLASSHOURS[i].split('-')
+                                        TimeSession.current = {inicio:CLASSHOURS[i].split('-')[0],fin:CLASSHOURS[i].split('-')[1]}
                                         handleNewSession(e)
                                     }}>
                                         <p className="label">Mesa 1</p>
@@ -131,7 +131,7 @@ return(
                                     style={{gridRow:"1/-1" }}
                                     onClick={(e)=>{
                                         Mesa.current = 2
-                                        TimeSession.current = CLASSHOURS[i].split('-')
+                                        TimeSession.current = {inicio:CLASSHOURS[i].split('-')[0],fin:CLASSHOURS[i].split('-')[1]}
                                         handleNewSession(e)
                                     }}>
                                         <p className="label">Mesa 2</p>
@@ -140,7 +140,7 @@ return(
                                     style={{gridRow:"1/-1"}}
                                     onClick={(e)=>{
                                         Mesa.current = 1
-                                        TimeSession.current = CLASSHOURS[i].split('-')
+                                        TimeSession.current = {inicio:CLASSHOURS[i].split('-')[0],fin:CLASSHOURS[i].split('-')[1]}
                                         handleNewSession(e)
                                     }}>
                                         <p className="label">Mesa 3</p>

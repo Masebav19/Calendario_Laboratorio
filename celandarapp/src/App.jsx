@@ -245,11 +245,11 @@ function App() {
             </div>
             <div className="inputContainer">
               <label htmlFor="Responsable">Responsable</label>
-              <input type="text" id = "Responsable" ref={Responsable} required defaultValue={`${Log.session.User.Nombre} ${Log.session.User.Apellido}`}/>
+              <input type="text" id = "Responsable" ref={Responsable} required defaultValue={`${Log.session.User?.Nombre?Log.session.User?.Nombre:""} ${Log.session.User?.Apellido?Log.session.User?.Apellido:""}`}/>
             </div>
             <div className="inputContainer">
               <label htmlFor="CorreoRes">Correo del responsable</label>
-              <input type="email" id = "CorreoRes" ref={CorreoResp} required defaultValue={Log.session.User.correo}/>
+              <input type="email" id = "CorreoRes" ref={CorreoResp} required defaultValue={Log.session?.User?.correo}/>
             </div>
             <div className="inputContainer">
               <label htmlFor="Periodicidad">Periodicidad</label>
@@ -265,14 +265,14 @@ function App() {
               <label htmlFor="Hora_inicial">Hora Inicial</label>
               <input type="time" id = "Hora_inicial" ref={Hora_inicial} 
               required step={"900"} min={"07:00"} max={"21:45"}
-              defaultValue={Log.session?.TimeSession[0]}/>
+              defaultValue={Log.session?.TimeSession?.inicio}/>
               
             </div>
            <div className="inputContainer">
               <label htmlFor="Hora_final">Hora Final</label>
               <input type="time" id = "Hora_final" ref={Hora_final} 
               required step={"900"} min={"07:00"} max={"21:45"}
-              defaultValue={Log.session?.TimeSession[1]}/>
+              defaultValue={Log.session?.TimeSession?.fin}/>
           </div>
            <div className="inputContainer">
               <label htmlFor="Fecha">Fecha</label>
