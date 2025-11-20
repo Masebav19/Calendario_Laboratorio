@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import RequestsManager from "../utils/RequetsManager.js"
 import DayInfo from "./DayInfo.jsx"
-import { DAYSNAMES, MONTHNAMES } from "../utils/constants.js"
+import { DAYSNAMES, MONTHNAMES, CLASSHOURS } from "../utils/constants.js"
 import './CalendarComponent.css'
 
 export default function CalendarConatiner ({CalendarType, SetSessionSelected, SetLog, User, SetUser}){
@@ -67,9 +67,9 @@ export default function CalendarConatiner ({CalendarType, SetSessionSelected, Se
             { CalendarType === 'week' && 
                 <div className="CalendarWeekdivisions">
                     <span></span>
-                        {Array.from({length: 17}, (v,i)=>i).map(i =>{
+                        {Array.from({length: CLASSHOURS.length}, (v,i)=>i).map(i =>{
                             return(
-                                <span style={{gridRow: `${i === 0 ? i+2:i*4+2}/${i=== 0? i+6: i*4+6}`}} key={i}>{i+5}</span>
+                                <span key={i}>{CLASSHOURS[i]}</span>
                             )
                         })}
                 </div>

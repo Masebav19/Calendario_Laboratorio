@@ -138,7 +138,7 @@ function App() {
   return (
     <>
     <header>
-      <small>Laboratorio de Instrumentación Industrial</small>
+      <small>Laboratorio de Redes Industriales</small>
       <div id="option-container">
         <span onClick={(e)=> {
           e.preventDefault()

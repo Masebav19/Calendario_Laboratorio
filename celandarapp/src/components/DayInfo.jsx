@@ -1,7 +1,6 @@
 import { CLASSHOURS } from '../utils/constants.js'
 import './DayInfo.css'
 import { nanoid } from 'nanoid'
-import LengthOfWeekDay from '../utils/LengthOfWeekDay.js'
 
 export default function DayInfo({dayInfo, CalendarType, SetSessionSelected,SetLog, User, SetUser}){
 
@@ -43,13 +42,12 @@ return(
             }
 
             {CalendarType === "week" &&
-                Array.from({length: LengthOfWeekDay({dayInfo})},(v,i) => i).map(i=>{
+                Array.from({length: CLASSHOURS.length},(v,i) => i).map(i=>{
                     const Session = dayInfo?.sessions?.find(session => session.Hora_inicial === CLASSHOURS[i])
                     return(
                         <>
-                            {(Session?.Hora_inicial === CLASSHOURS[i] ||
-                                i === 0) ?
-                                    <div className={i === 0 ? "DayHeader":Session?"session":""} style={{gridRow: Session?`${1+i}/${1+CLASSHOURS.findIndex(hour => {
+                            {Session?.Hora_inicial === CLASSHOURS[i] ?
+                                    <div className={"session"} style={{gridRow: Session?`${1+i}/${1+CLASSHOURS.findIndex(hour => {
                                         return hour === Session.Hora_final
                                     })}`:""
                                     }} 
@@ -70,7 +68,7 @@ return(
                                     }
                                     </div>
                                 :
-                                <div style={{height: "30px"}} key={nanoid(4)} title={"Click para Crear Sessión"}></div>
+                                <div className={i === 0 ? "DayHeader":""} style={{height: "30px"}} key={nanoid(4)} title={"Click para Crear Sessión"}></div>
                             }
                         </>
                     )
